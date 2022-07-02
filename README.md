@@ -4,4 +4,4 @@
 
 ## Technology used
 
-## Lessons Learned# JetsProject
+## Lessons Learned
