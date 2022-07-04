@@ -1,0 +1,6 @@
+Steve Pilotson,5,100000
+Joe Flyguy,2,90000
+Sarah Aviator,9,120000
+Mavrick,12,200000
+Goose,6,105000
+The Red Barron,90,900000

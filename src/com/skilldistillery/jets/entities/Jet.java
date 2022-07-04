@@ -5,13 +5,15 @@ protected String name;
 protected double mph;
 protected double range;
 protected int price;
+protected Pilot pilot;
 
-public void Jet(String name, double mph, double range, int price) {
+public void Jet(String name, double mph, double range, int price, Pilot pilot) {
 	
 	this.name = name;
 	this.mph = mph;
 	this.range = range;
 	this.price = price;
+	this.pilot = pilot;
 }
 
 public abstract String fly();public String getName() {

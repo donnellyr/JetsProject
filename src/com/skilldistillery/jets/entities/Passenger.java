@@ -2,20 +2,17 @@ package com.skilldistillery.jets.entities;
 
 public class Passenger extends Jet {
 
-	public Passenger(String name, Double mph, Double range, Integer price) {
-		super.Jet(name, mph, range, price);
+	public Passenger(String name, Double mph, Double range, Integer price, Pilot pilot) {
+		super.Jet(name, mph, range, price, pilot);
 		}
 	
-	public void Jet(String name, double mph, double range, int price) {
-		super.Jet(name, mph, range, price);
+	public void Jet(String name, double mph, double range, int price, Pilot pilot) {
+		super.Jet(name, mph, range, price, pilot);
 	}
-	public String displayJet() {
-		return "Passenger [name=" + name + ", mph=" + mph + ", range=" + range + ", price=" + price;
-	}
-
+	
 	@Override
 	public String toString() {
-		return "Passenger [name=" + name + ", mph=" + mph + ", range=" + range + ", price=" + price + "]";
+		return "Type : Passenger, Name: " + name + ", MPH: " + mph + ", Range: " + range + ", Price: " + price +"\n   Pilot: " + pilot;
 	}
 	@Override
 	public String fly() {
