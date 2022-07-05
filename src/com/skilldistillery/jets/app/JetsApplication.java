@@ -22,7 +22,6 @@ public class JetsApplication {
 		run.newPlane();
 		run.menu();
 	}
-
 	private void newPlane() {
 		String name = "";
 		Double mph = 0.0;
@@ -39,17 +38,17 @@ public class JetsApplication {
 				range = Double.parseDouble(input[3]);
 				price = Integer.parseInt(input[4]);
 				pilot = p.assignPilot();
-				
+
 				if (input[0].equals("cargo")) {
-					Cargo output = new Cargo(name, mph, range, price,pilot);
+					Cargo output = new Cargo(name, mph, range, price, pilot);
 					airfield.Airfield(output);
 
 				} else if (input[0].equals("fighter")) {
-					Fighter output = new Fighter(name, mph, range, price,pilot);
+					Fighter output = new Fighter(name, mph, range, price, pilot);
 					airfield.Airfield(output);
 
 				} else {
-					Passenger output = new Passenger(name, mph, range, price,pilot);
+					Passenger output = new Passenger(name, mph, range, price, pilot);
 					airfield.Airfield(output);
 
 				}
@@ -59,26 +58,26 @@ public class JetsApplication {
 			System.err.println(e);
 		}
 	}
+
 	private void newPilot() {
-		String name ="";		
-		Integer experiance =0;		
-		Double salary =0.0;		
+		String name = "";
+		Integer experiance = 0;
+		Double salary = 0.0;
 		try (BufferedReader bufIn = new BufferedReader(new FileReader("roster.txt"))) {
 			String line;
 			while ((line = bufIn.readLine()) != null) {
 				String[] input = new String[5];
 				input = line.split(",");
 				name = input[0];
-				experiance =Integer.parseInt(input[1]);
+				experiance = Integer.parseInt(input[1]);
 				salary = Double.parseDouble(input[2]);
-				Pilot output =new Pilot(name,experiance,salary);
+				Pilot output = new Pilot(name, experiance, salary);
 				p.addPilot(output);
 			}
+		} catch (IOException e) {
+			System.err.println(e);
 		}
-				catch (IOException e) {
-				System.err.println(e);
-			}
-		
+
 	}
 
 	private void menu() {
@@ -122,9 +121,10 @@ public class JetsApplication {
 				removeJet();
 				break;
 			case 9:
-				 singleJet();
-				 break;
+				singleJet();
+				break;
 			case 10:
+				System.out.println("Have a good day!");
 				repeat = false;
 				break;
 
@@ -154,16 +154,16 @@ public class JetsApplication {
 		range = sc.nextDouble();
 		System.out.println("Enter the price of the jet");
 		price = sc.nextInt();
-		if(type == 1) {
-		Passenger output = new Passenger(name, mph, range, price,pilot);
-		airfield.Airfield(output);
-		}
-		if(type == 2) {
-			Fighter output = new Fighter(name, mph, range, price,pilot);
+		if (type == 1) {
+			Passenger output = new Passenger(name, mph, range, price, pilot);
 			airfield.Airfield(output);
 		}
-		if(type == 3) {
-			Cargo output = new Cargo(name, mph, range, price,pilot);
+		if (type == 2) {
+			Fighter output = new Fighter(name, mph, range, price, pilot);
+			airfield.Airfield(output);
+		}
+		if (type == 3) {
+			Cargo output = new Cargo(name, mph, range, price, pilot);
 			airfield.Airfield(output);
 		}
 	}
@@ -175,6 +175,7 @@ public class JetsApplication {
 		jet = sc.nextInt();
 		airfield.removeAirField(jet - 1);
 	}
+
 	private void singleJet() {
 		int jet = 0;
 		System.out.println("Please enter the number of the jet you would like to fly");
